@@ -1,6 +1,6 @@
 static public class Informacion
 {
-    static private string[] juegos { get; set; } = { "piedrapapeltijera", "mameig", "ahorcado", "adivinapalabra", "tateti", "sopadeletras" };
+    static private string[] juegos { get; set; } = { "piedrapapeltijera", "mameig", "ahorcado", "adivinapalabra", "tateti", "sopadeletras", "simondice" };
     static public int? juegoSeleccionado { get; set; }
     static public int Nivel { get; set; }
     static private List<char> listaLetras { get; set; } = new List<char>() { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
@@ -39,6 +39,8 @@ static public class Informacion
     static private int numeroAdivinaPalabraAnterior { get; set; }
     static public int adivinePalabra { get; set; }
     static public string mensajeAdivinarPalabra { get; set; }
+    static int[] numeroJugadas{get;set;} = new int[64];
+    static int[] posiblesJugadas{get;set;} = new int[4];
 
     static public void reestablecerValores()
     {

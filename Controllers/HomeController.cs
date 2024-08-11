@@ -201,6 +201,10 @@ public class HomeController : Controller
         return RedirectToAction("adivinapalabra");
     }
 
+    public IActionResult simondice()
+    {
+        return View();
+    }
 
 
 

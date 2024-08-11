@@ -1,31 +1,53 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - TP06_2</title>
+    <title>@ViewData["Title"] - JuegaXpress - ¡Jugá minijuegos totalmente gratis!</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/TP06_2.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TP06_Zilbersztein.styles.css" asp-append-version="true" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.1/font/bootstrap-icons.min.css">
 </head>
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TP06_2</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">JuegaXpress</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Nuestros juegos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 1})">Piedra, papel o
+                                        tijera</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 2})">¿El número es...?</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 3})">Ahorcado</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 4})">¡Adiviná la palabra!</a>
+                                </li>
+                                <li><a class="dropdown-item" href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 5})">Ta-te-ti</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 6})">Sopa de letras</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" href='@Url.Action("sobrenosotros", "Home")'>Sobre nosotros</a>
                         </li>
                     </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
                 </div>
             </div>
         </nav>
@@ -36,9 +58,36 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - TP06_2 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer>
+        <div class="container-fluid">
+            <div class="row p-5 text-black">
+                <div class="col-xs-12 col-md-6 col-lg-3">
+                    <p class="h3">JuegaXpress</p>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-3">
+                    <p class="h5">Redes sociales</p>
+                    <a class="text-black" href="#">
+                        <p>Twitter</p>
+                    </a>
+                    <a class="text-black" href="#">
+                        <p>Facebook</p>
+                    </a>
+                    <a class="text-black" href="#">
+                        <p>Instagram</p>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-3">
+                    <p class="h5">Ubicación</p>
+                    <p>CABA</p>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-3">
+                    <p class="h5">Contacto</p>
+                    <p class="text-black">+54 9 7629-1828</p>
+                    <p class="email">juegaxpress@developer.com</p>
+                </div>
+            </div>
+            <p class="empresa">&copy; 2024 JuegaXpress. Todos los derechos reservados.</p>
+
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -46,4 +95,5 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

@@ -137,6 +137,10 @@
       "PackagePath": "staticwebassets\\images\\papel.png"
     },
     {
+      "Id": "C:\\Users\\marti\\TP06_2\\wwwroot\\images\\simondice.png",
+      "PackagePath": "staticwebassets\\images\\simondice.png"
+    },
+    {
       "Id": "C:\\Users\\marti\\TP06_2\\wwwroot\\images\\tijera.png",
       "PackagePath": "staticwebassets\\images\\tijera.png"
     },
