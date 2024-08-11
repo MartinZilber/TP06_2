@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing.Constraints;
 
-namespace TP06_Zilbersztein.Models;
+namespace TP06_2.Models;
 static public class Informacion
 {
     static private string[] juegos { get; set; } = { "piedrapapeltijera", "mameig", "ahorcado", "adivinapalabra", "tateti", "sopadeletras" };
@@ -402,14 +402,6 @@ static public class Informacion
         } while (!noOcupado && contadorEspacios <= 8);
         if (noOcupado)
         {
-            if (Nivel == 2)
-            {
-                for (int i = 0; i< 9; i++)
-                {
-                    if (espaciosOcupadosCruz[i] )
-                }
-            }
-            
             do
             {
                 jugada = calcularNumero(minimo, maximo);

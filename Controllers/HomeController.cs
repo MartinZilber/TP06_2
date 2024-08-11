@@ -3,9 +3,10 @@ using System.Diagnostics;
 using System.Xml.Schema;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
+using TP06_2.Models;
 using TP06_Zilbersztein.Models;
 
-namespace TP06_Zilbersztein.Controllers;
+namespace TP06_2.Controllers;
 
 public class HomeController : Controller
 {
