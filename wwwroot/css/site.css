@@ -1,0 +1,415 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+p {
+  width: 49%;
+  margin-left: 27%;
+}
+
+.mensajeindex {
+  font-size: 150%;
+}
+
+h4 {
+  font-size: medium;
+  width: 40%;
+  margin-left: 30%;
+}
+
+.col {
+  margin-bottom: 1%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* Asegura que la tarjeta ocupe el espacio disponible */
+}
+
+.card-body {
+  flex: 1;
+}
+
+.card-body form {
+  margin-top: auto;
+}
+
+.card-img-top {
+  width: 95%;
+  height: 300px;
+  margin-left: 3%;
+  margin-top: 1%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.separador {
+  margin-top: 1%;
+}
+
+.imgajustada {
+  width: 70%;
+  margin-left: 17%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h4 {
+  font-size: 200%;
+  margin-left: 25%;
+}
+
+.list-group {
+  width: 60%;
+  margin-left: 25%;
+}
+
+.botonesjuego {
+  margin-top: 1%;
+}
+
+.form {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  margin-top: 8%;
+  margin-left: 5%;
+}
+
+.form .btn {
+  font-size: 250%;
+  padding: 10px 20px;
+}
+
+.textojugar {
+  margin-left: 26%;
+  text-align: center;
+}
+
+.numero {
+  margin-left: 30.5%;
+  font-size: 500%;
+}
+
+h5 {
+  margin-left: 3%;
+}
+
+.reglas {
+  margin-left: 25.5%;
+}
+
+.formsmameig {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+.datomameig{
+  margin-left:26%;
+  margin-bottom:0%;
+}
+
+.mameig .btn {
+  float: left;
+  font-size: 200%;
+  margin-top: 15%;
+}
+
+.alert {
+  width: 8%;
+  height: 5%;
+  margin-left: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert-danger {
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+.titulojugada {
+  margin-left: 31%;
+}
+
+.piedrapapeltijeracont {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.piedrapapeltijera {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.piedrapapeltijera .elemento {
+  width: 100%;
+  height: auto;
+  max-width: 150px;
+}
+
+.jugadasprevias {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+
+}
+
+.jugadasprevias .alert-warning {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 200px;
+  margin: 10px;
+  text-align: center;
+}
+
+.jugadasprevias .alert-warning .contenedor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.jugadasprevias .alert-warning p {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.jugadasprevias .alert-warning .jugadasanteriores {
+  max-width: 60%;
+  max-height: 80%;
+  flex-shrink: 0;
+  margin-top: 8%;
+}
+
+.corazones {
+  margin-left: 8%;
+  font-size: 150%;
+}
+
+.corazones p {
+  margin-left: 0%;
+}
+
+span {
+  font-size: 300%;
+}
+.ahorcadocontenedor{
+  display:flex;
+  margin-left:30%;
+}
+
+.imagenahorcado {
+  display:flex;
+  justify-content: center;
+  margin-right: 5%;
+  width:33%;
+}
+.palabra{
+  display:flex;
+  align-items:end;
+  height:50%;
+  margin-top:10%;
+}
+.contenedorletras{
+  margin-top:1%;
+  margin-left:30%;
+}
+.container .row .col .letras{
+  font-size:80%;
+}
+.finalahorcado{
+  margin-left:26%;
+}
+
+form .mb-3 label {
+  margin-top: 2%;
+  clear: left;
+}
+
+form .mb-3 .form-control {
+  width: 10%;
+  margin-left: 45%;
+}
+
+form .mb-3 .btn-primary {
+  margin-top: 0.4%;
+}
+.formulariosahorcado .btn-secondary{
+  margin-top:0.4%;
+}
+.mensajeerrorsopa {
+  margin-left: 26%;
+}
+
+.grillatateti {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.grillatateti .fila {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.grillatateti .fila form {
+  flex: 1 1 calc(33.33% - 10px);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.grillatateti .fila input {
+  width: 100%;
+  height: auto;
+  border: 1px solid black;
+  cursor: pointer;
+  display: block;
+}
+
+.reintentar input {
+  margin-top: 1.5%;
+}
+
+.text-center .mensajeganador {
+  margin-left: 26%;
+}
+
+.contenedorlibro {
+  position: relative;
+  display: inline-block;
+}
+
+.contenedorlibro .libro {
+  display: block;
+  max-width: 80%;
+  height: auto;
+  margin-left: 9.5%;
+}
+
+.contenedorlibro .definicion {
+  position: absolute;
+  top: 31%;
+  right: 17%;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  width: 65%;
+  font-size: 175%;
+}
+
+.alert-primary {
+  max-height: 50px;
+  width: 8%;
+}
+
+.textoadivinarpalabra {
+  margin-bottom: 5%;
+}
+
+.reiniciarpalabra {
+  display: flex;
+}
+
+.mensajeaviso {
+  margin-left: 26%;
+}
+
+.sobrenosotros {
+  display: flex;
+  justify-content: center;
+}
+
+.sobrenosotros div img {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin-left: 27%;
+}
+
+.form {
+  min-height: 17.6vh;
+}
+
+footer {
+  background-color: whitesmoke;
+  margin-top: 7%;
+  text-align: center;
+  padding: 0;
+  width: 100%;
+  position: absolute;
+  z-index: 1000;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer col {
+  display: flex;
+}
+
+footer ul li {
+  list-style-type: none;
+  margin-right: 10%;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer div div a p:hover {
+  color: silver;
+}
+
+footer .empresa {
+  display: flex;
+  justify-content: start;
+  margin-left: 3.5%;
+}
