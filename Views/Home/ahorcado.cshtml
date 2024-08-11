@@ -1,0 +1,76 @@
+@{
+    ViewData["Title"] = "Ahorcado";
+    string palabra = ViewBag.palabra;
+    int? longitudPalabra = ViewBag.longitudPalabra;
+    int? vidas = ViewBag.vidas;
+}
+
+<div class="text-center">
+    <h2 class="display-4">Ahorcado</h2>
+    <p class="textojugar">¡A jugar!</p>
+    <h6>¡Adiviná la palabra!</h6>
+    <p class="finalahorcado">@ViewBag.Final</p>
+
+</div>
+<div class="corazones">
+    <p>Vidas</p>
+    @for (int i = 0; i < vidas; i++)
+    {
+        <i class="bi bi-heart-fill"></i>
+    }
+</div>
+<div class="text-center ahorcadocontenedor">
+    <img class="imagenahorcado" src=@ViewBag.imagenVidas>
+    <div class="palabra">
+        @for (int i = 0; i < longitudPalabra; i++)
+        {
+            if (ViewBag.letrasDescubiertas.Count > 0 && ViewBag.letrasDescubiertas.Contains(palabra[i]))
+            {
+                if (i == 0)
+                {
+                    <span>@ViewBag.palabra[i].ToString().ToUpper()</span>
+                }
+                else
+                {
+                    <span>@palabra[i]</span>
+                }
+
+            }
+            else
+            {
+                <span>-</span>
+            }
+
+        }
+    </div>
+</div>
+<div class="contenedorletras">
+    <div class="row align-items-start">
+            <div class="col">
+                Letras utilizadas: 
+                <div class="letras">
+                    @for (int i = 0; i < @ViewBag.letrasArriesgadas.Count; i++)
+                    {   
+                        <span>@ViewBag.letrasArriesgadas[i]</span>
+                        if (i < @ViewBag.letrasArriesgadas.Count-1)
+                        {
+                            <span>, </span>
+                        }
+                    }
+                </div>
+            </div>
+    </div>
+</div>
+<div class="text-center">
+    <section class="formulariosahorcado">
+        <form action='@Url.Action("ProcesarAhorcado", "Home")' method="post">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Ingresá tu jugada</label>
+                <input type="text" autocomplete="off" name="jugada" class="form-control" id="exampleFormControlInput1"
+                    autofocus="focus" placeholder="Ingresá una letra o la palabra">
+                <input name="EnviarForm" type="submit" value="Enviar" class="btn btn-primary">
+                <input name="EnviarForm" type="submit" value="Reiniciar" class="btn btn-secondary">
+            </div>
+        </form>
+    </section>
+</div>
