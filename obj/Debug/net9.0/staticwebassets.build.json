@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dENNEmCus5eVYRMzkx6BPHikCgIP2WqnsDSiG15jYlM=",
+  "Hash": "cuxGzPUKrU31jDirfhqG/V5G8BvSbo3MxMwvOmiybUA=",
   "Source": "TP06_2",
   "BasePath": "_content/TP06_2",
   "Mode": "Default",
@@ -1630,6 +1630,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Piedra.png"
+    },
+    {
+      "Identity": "C:\\Users\\marti\\TP06_2\\wwwroot\\images\\simondice.jpg",
+      "SourceId": "TP06_2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\marti\\TP06_2\\wwwroot\\",
+      "BasePath": "_content/TP06_2",
+      "RelativePath": "images/simondice.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\simondice.jpg"
     },
     {
       "Identity": "C:\\Users\\marti\\TP06_2\\wwwroot\\images\\simondice.png",

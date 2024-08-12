@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Drawing;
 using Microsoft.AspNetCore.Mvc;
 using TP06_2.Models;
 
@@ -204,6 +205,11 @@ public class HomeController : Controller
     public IActionResult simondice()
     {
         return View();
+    }
+    public IActionResult procesarSimonDice(string color)
+    {
+        ViewBag.color = color;
+        return View("simondice");
     }
 
 

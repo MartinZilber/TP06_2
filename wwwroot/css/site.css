@@ -417,3 +417,7 @@ footer .empresa {
   width:30%;
   margin-bottom:0%;
 }
+.poligono{
+  border: 1px solid red;
+  background-color:red;
+}
