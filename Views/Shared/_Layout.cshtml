@@ -17,11 +17,6 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="@Url.Action("Index", "Home")">JuegaXpress</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
@@ -30,24 +25,37 @@
                                 Nuestros juegos
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 1})">Piedra, papel o
+                                <li><a class="dropdown-item"
+                                        href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 1})">Piedra,
+                                        papel o
                                         tijera</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 2})">¿El número es...?</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 3})">Ahorcado</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 4})">¡Adiviná la palabra!</a>
+                                <li><a class="dropdown-item"
+                                        href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 2})">¿El
+                                        número es...?</a></li>
+                                <li><a class="dropdown-item"
+                                        href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 3})">Ahorcado</a>
                                 </li>
-                                <li><a class="dropdown-item" href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 5})">Ta-te-ti</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 6})">Sopa de letras</a></li>
+                                <li><a class="dropdown-item"
+                                        href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 4})">¡Adiviná
+                                        la palabra!</a>
+                                </li>
+                                <li><a class="dropdown-item"
+                                        href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 5})">Ta-te-ti</a>
+                                </li>
+                                <li><a class="dropdown-item"
+                                        href="@Url.Action("GuardarJuegoSeleccionado", "Home", new {juego = 6})">Sopa de
+                                        letras</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href='@Url.Action("sobrenosotros", "Home")'>Sobre nosotros</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 iniciarsesion">
+                        <li class="nav-item">
+                            <a class="nav-link" href='@Url.Action("sobrenosotros", "Home")'>Iniciar sesión</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>

@@ -39,8 +39,11 @@ static public class Informacion
     static private int numeroAdivinaPalabraAnterior { get; set; }
     static public int adivinePalabra { get; set; }
     static public string mensajeAdivinarPalabra { get; set; }
-    static int[] numeroJugadas{get;set;} = new int[64];
-    static int[] posiblesJugadas{get;set;} = new int[4];
+    static int[] numeroJugadas { get; set; } = new int[64];
+    static int[] posiblesJugadas { get; set; } = new int[4];
+    static string[] posiblesJugadasColores { get; set; } = { "verde", "rojo", "amarillo", "azul" };
+    static int recordSimonDice { get; set; } = 0;
+    static int siguienteJugadaSimonDice { get; set; } = 0;
 
     static public void reestablecerValores()
     {
@@ -52,6 +55,8 @@ static public class Informacion
         maximo = 0;
         minimo = 0;
         contadorIntentos = 0;
+        recordSimonDice = 0;
+        siguienteJugadaSimonDice = 0;
         respuestaFinalSopa = "";
         for (int i = 0; i < palabrasSopa.Length; i++)
         {
@@ -59,6 +64,7 @@ static public class Informacion
             espaciosOcupadosCirculo[i] = false;
             espaciosOcupadosCruz[i] = false;
             espaciosOcupados[i] = 0;
+            numeroJugadas[i] = -1;
         }
         alguienGano = false;
         mensajeAdivinarPalabra = "";
@@ -74,6 +80,11 @@ static public class Informacion
         {
             minimo = 1;
             maximo = 10;
+        }
+        else if (juegoSeleccionado == 7)
+        {
+            minimo = 0;
+            maximo = 4;
         }
         return juegoString;
     }
@@ -504,5 +515,15 @@ static public class Informacion
             racha = 0;
         }
         return mensajeAdivinarPalabra;
+    }
+    public static string elegirColor()
+    {
+        int numeroElegido = calcularNumero(minimo, maximo);
+        if (recordSimonDice <= numeroJugadas.Length)
+        {
+            numeroJugadas[recordSimonDice] = posiblesJugadas[recordSimonDice];
+            recordSimonDice++;
+        }
+        return posiblesJugadasColores[numeroElegido];
     }
 }

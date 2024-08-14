@@ -8,17 +8,19 @@
     <div class="alert alert-primary" role="alert">
         Racha: @ViewBag.contador
     </div>
-    <form action='@Url.Action("procesarsimondice", "Home")'>
+    <form action='@Url.Action("procesarsimondice", "Home")' id="simondiceForm">
         <input type="hidden" name="color" id="selectedColor" value="null">
-        <input type="image" class="simondice" src="/images/simondice.png" usemap="#colormap">
-        <map name="colormap">
-            <area class="poligono" shape="poly" coords="12,186,187,102,183,13,100,184" alt="Verde" onclick="setColor('verde')">
-            <area shape="poly" coords="300,186,400,100,450,200,350,250" alt="Blue" onclick="setColor('azul')">
-            <area shape="poly" coords="100,350,200,300,250,400,150,450" alt="Rojo" onclick="setColor('rojo')">
-            <area shape="poly" coords="300,350,400,300,450,400,350,450" alt="Amarillo" onclick="setColor('amarillo')">
+        <img class="simondice" src="/images/simondice.png" usemap="#color-map">
+        <map name="color-map">
+            <area class="poligono" coords="124,223,16,224,21,173,67,89,115,49,170,22,223,16,225,123,184,133,146,165,131,196,127,216" shape="poly" onclick="setColor('verde')">
+            <area class="poligono" coords="265,128,241,124,240,16,281,21,324,35,369,62,396,90,424,127,444,180,448,221,443,222,375,223,342,224,330,185,313,161,299,149,286,139" shape="poly" onclick="setColor('rojo')">
+            <area class="poligono" coords="62,367,35,321,18,270,16,240,70,241,95,240,126,241,131,269,144,292,160,314,172,322,192,333,223,341,224,388,223,449,184,443,139,426,110,413,85,391" shape="poly" onclick="setColor('amarillo')">
+            <area class="poligono" coords="333,273,342,241,449,240,442,286,419,346,390,383,332,425,283,442,242,448,240,385,240,341,283,328,320,298" shape="poly" onclick="setColor('azul')"> 
         </map>
+
     </form>
-    <p>@ViewBag.color</p>
+    <p>El último color pulsado fue @ViewBag.color</p>
+    <p>El último color elegido fue @ViewBag.colorElegido</p>
 
 
 </div>

@@ -202,14 +202,16 @@ public class HomeController : Controller
         return RedirectToAction("adivinapalabra");
     }
 
-    public IActionResult simondice()
+    public IActionResult simondice(string color)
     {
+        ViewBag.colorElegido = Informacion.elegirColor();
+        ViewBag.color = color;
         return View();
     }
     public IActionResult procesarSimonDice(string color)
     {
         ViewBag.color = color;
-        return View("simondice");
+        return RedirectToAction("simondice",new { color });
     }
 
 
