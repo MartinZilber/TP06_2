@@ -18,11 +18,16 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         Informacion.reestablecerValores();
+        ViewBag.Nombre = BD.traerNombre();
         return View();
     }
     public IActionResult sobrenosotros()
     {
         return View("sobrenosotros");
+    }
+    public IActionResult iniciarSesion()
+    {
+        return View("index");
     }
     public IActionResult GuardarJuegoSeleccionado(int juego)
     {
