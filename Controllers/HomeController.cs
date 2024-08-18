@@ -18,8 +18,20 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         Informacion.reestablecerValores();
-        ViewBag.Nombre = BD.traerNombre();
+        List<Juego> juegos = BD.traerListaJuegos();
+        ViewBag.listaJuegos = juegos;
+        ViewBag.limite = ViewBag.listaJuegos.Count/3;
         return View();
+    }
+    public IActionResult BuscarJuego(string busqueda)
+    {
+        List<Juego> juegosEncontrados = BD.traerJuegosEncontrados(busqueda);
+        ViewBag.listaJuegos = juegosEncontrados;
+        ViewBag.cantJuegos = juegosEncontrados.Count;
+        if (ViewBag.cantJuegos % 3 == 0) {ViewBag.limiteFila = 3; ViewBag.cantidadFilas = ViewBag.cantJuegos/3;}
+        else if (ViewBag.cantJuegos % 2 == 0) {ViewBag.limiteFila = 2; ViewBag.cantidadFilas = ViewBag.cantJuegos/2;}
+        else {ViewBag.limiteFila = 1; ViewBag.cantidadFilas = 1;}
+        return View("busqueda");
     }
     public IActionResult sobrenosotros()
     {

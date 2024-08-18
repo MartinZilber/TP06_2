@@ -33,11 +33,17 @@ html {
   margin-left:71%;
 }
 
+
 .formbuscador {
   width: 20%;
   margin-left:42%;
   margin-bottom:2%;
 }
+.contenedorbuscador{
+  width:50%;
+  margin-top:2%;
+}
+
 
 body {
   margin-bottom: 60px;
@@ -77,8 +83,7 @@ h4 {
   margin-top: auto;
 }
 
-.card-img-top {
-  width: 95%;
+.imagen-card {
   height: 300px;
   margin-left: 3%;
   margin-top: 1%;

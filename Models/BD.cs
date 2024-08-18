@@ -1,21 +1,32 @@
 using System.Data.SqlClient;
 using Dapper;
+using TP06_2.Models;
 
 namespace TP06_2
 {
     static public class BD
     {
         private static string _connectionString { get; set; } = @"Server=DESKTOP-CV8MP7S\SQLEXPRESS;DataBase=Juego;Trusted_Connection=true;";
-        
-        public static string traerNombre()
+        public static List<Juego> traerListaJuegos()
         {
-            string nombre;
+            List<Juego> juegos = new List<Juego>();
             using (SqlConnection db = new SqlConnection(_connectionString))
             {
-                string sql = "select Nombre from Usuario where nombre = 'Hola'";
-                nombre = db.QueryFirstOrDefault<string>(sql);
+                string sql = "select * from Juego";
+                juegos = db.Query<Juego>(sql).ToList();
             }
-            return nombre;
+            return juegos;
+        }
+        public static List<Juego> traerJuegosEncontrados(string busqueda)
+        {
+            List<Juego> juegos = new List<Juego>();
+            using (SqlConnection db = new SqlConnection(_connectionString))
+            {
+                busqueda = $"%{busqueda}%";
+                string sql = "select * from Juego where Nombre LIKE @pbusqueda OR Descripcion LIKE @pbusqueda";
+                juegos = db.Query<Juego>(sql, new {pbusqueda = busqueda}).ToList();
+            }
+            return juegos;
         }
 
     }

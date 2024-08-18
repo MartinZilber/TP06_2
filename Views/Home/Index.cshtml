@@ -1,150 +1,46 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Página principal";
+    int contador = 0, limite = 3;
+    string ancho, margin;
 }
 
 <div class="text-center">
     <h1 class="titulo">MINIJUEGOS</h1>
     <p class="mensajeindex">¿Estás aburrido y no sabés qué hacer? ¡Acá tenés juegos cortos para divertirte!
-    <form class="d-flex formbuscador">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <form action='@Url.Action("BuscarJuego", "Home")'class="d-flex formbuscador">
+        <input name="busqueda" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
-
-    <div class="container text-center">
-        <div class="row align-items-start">
-            <div class="col">
-                <div class="card">
-                    <img src="/images/Piedra, papel o tijera.jpg" class="card-img-top" alt="Piedra, papel o tijera">
-                    <div class="card-body">
-                        <h5 class="card-title">Piedra, papel o tijera</h5>
-                        <p class="card-text">¡El clásico! Utilizá los tres elementos para consagrarte ganador de esta
-                            lucha sin fin.</p>
-                        <form action='@Url.Action("GuardarJuegoSeleccionado", "Home")'>
-                            <input type="hidden" name="juego" value="1">
-                            <input type="submit" value="Jugar" class="btn btn-primary" for="btn-check"></input>
-                        </form>
+        @for (int i = 0; i < ViewBag.listaJuegos.Count/3; i++)
+        {
+        <div class="container text-center">
+            <div class="row align-items-start">
+                    @for (; contador < limite; contador++)
+                    {
+                    <div class="col">
+                        <div class="card">
+                                @if (contador == 2 || contador == 4)
+                                { ancho = "width: 70%"; margin = "margin-left: 20%"; 
+                                if (contador == 4) {margin = "margin-left: 18%";} }
+                                else { ancho = "width: 95%"; margin = "0 auto"; }
+                            <img style="@ancho; @margin;" src="@ViewBag.listaJuegos[contador].Imagen" class="imagen-card"
+                                alt="@ViewBag.listaJuegos[contador].Nombre">
+                            <div class="card-body">
+                                @if (ViewBag.listaJuegos[contador].Id == 2) {<h5 class="card-title">¿@ViewBag.listaJuegos[contador].Nombre</h5>}
+                                else {<h5 class="card-title">@ViewBag.listaJuegos[contador].Nombre</h5>}
+                                <p class="card-text">@ViewBag.listaJuegos[contador].Descripcion</p>
+                                <form action='@Url.Action("GuardarJuegoSeleccionado", "Home")'>
+                                    <input type="hidden" name="juego" value=@(ViewBag.listaJuegos[contador].Id)>
+                                    <input type="submit" value="Jugar" class="btn btn-primary" for="btn-check"></input>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    }
+                    @{
+                        limite += 3;
+                    }
             </div>
-            <div class="col">
-                <div class="card">
-                    <img src="/images/mayormenor.png" class="card-img-top" alt="MAMEIG">
-                    <div class="card-body">
-                        <h5 class="card-title">¿El número es...?</h5>
-                        <p class="card-text">¿Es mayor? ¿Es menor? ¿Es igual? ¡Comprobalo en este maravilloso juego de
-                            azar! ¡Buena suerte!</p>
-                        <form action='@Url.Action("GuardarJuegoSeleccionado", "Home")'>
-                            <input type="hidden" name="juego" value="2">
-                            <input type="submit" value="Jugar" class="btn btn-primary"></input>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="/images/Ahorcado.png" class="card-img-top imgajustada" alt="Ahorcado">
-                    <div class="card-body">
-                        <h5 class="card-title">Ahorcado</h5>
-                        <p class="card-text">Adiviná la palabra que estamos pensando, pero, ¡sé prudente! No querrías
-                            ser ahorcado...</p>
-                        <form action='@Url.Action("GuardarJuegoSeleccionado", "Home")'>
-                            <input type="hidden" name="juego" value="3">
-                            <input type="submit" value="Jugar" class="btn btn-primary" for="btn-check"></input>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container text-center">
-        <div class="row align-items-start">
-            <div class="col">
-                <div class="card">
-                    <img src="/images/adiviná la palabra.jpg" class="card-img-top" alt="El rosco">
-                    <div class="card-body">
-                        <h5 class="card-title">Adiviná la palabra</h5>
-                        <p class="card-text">¿Cuántas palabras y sus significados conocés? ¡Comprobalo en este
-                            desafiante juego!</p>
-                        <form action='@Url.Action("GuardarJuegoSeleccionado", "Home")'>
-                            <input type="hidden" name="juego" value="4">
-                            <input type="submit" value="Jugar" class="btn btn-primary" for="btn-check"></input>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="/images/Ta-te-ti.jpg" class="card-img-top imgajustada" alt="Ta-te-ti">
-                    <div class="card-body">
-                        <h5 class="card-title">Ta-te-ti</h5>
-                        <p class="card-text">¡El juego de las formas! Juntando azar con estrategia, ¡podés ganar este
-                            tradicional juego!</p>
-                        <form action='@Url.Action("GuardarJuegoSeleccionado", "Home")'>
-                            <input type="hidden" name="juego" value="5">
-                            <input type="submit" value="Jugar" class="btn btn-primary" for="btn-check"></input>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="/images/Sopa de letras.png" class="card-img-top" alt="Piedra, papel o tijera">
-                    <div class="card-body">
-                        <h5 class="card-title">Sopa de letras</h5>
-                        <p class="card-text">¡Encontrá todas las palabras que puedas! Pero, cuidado... ¡No vaya a ser
-                            que te dé hambre!</p>
-                        <form action='@Url.Action("GuardarJuegoSeleccionado", "Home")'>
-                            <input type="hidden" name="juego" value="6">
-                            <input type="submit" value="Jugar" class="btn btn-primary" for="btn-check"></input>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container text-center">
-        <div class="row align-items-start">
-            <div class="col">
-                <div class="card">
-                    <img src="/images/simondice.jpg" class="card-img-top" alt="El rosco">
-                    <div class="card-body">
-                        <h5 class="card-title">Simón dice</h5>
-                        <p class="card-text">¿Cuán buena es tu memoria?</p>
-                        <form action='@Url.Action("GuardarJuegoSeleccionado", "Home")'>
-                            <input type="hidden" name="juego" value="7">
-                            <input type="submit" value="Jugar" class="btn btn-primary" for="btn-check"></input>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="/images/Ta-te-ti.jpg" class="card-img-top imgajustada" alt="Ta-te-ti">
-                    <div class="card-body">
-                        <h5 class="card-title">Ta-te-ti</h5>
-                        <p class="card-text">¡El juego de las formas! Juntando azar con estrategia, ¡podés ganar este
-                            tradicional juego!</p>
-                        <form action='@Url.Action("GuardarJuegoSeleccionado", "Home")'>
-                            <input type="hidden" name="juego" value="5">
-                            <input type="submit" value="Jugar" class="btn btn-primary" for="btn-check"></input>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="/images/Sopa de letras.png" class="card-img-top" alt="Piedra, papel o tijera">
-                    <div class="card-body">
-                        <h5 class="card-title">Sopa de letras</h5>
-                        <p class="card-text">¡Encontrá todas las palabras que puedas! Pero, cuidado... ¡No vaya a ser
-                            que te dé hambre!</p>
-                        <form action='@Url.Action("GuardarJuegoSeleccionado", "Home")'>
-                            <input type="hidden" name="juego" value="6">
-                            <input type="submit" value="Jugar" class="btn btn-primary" for="btn-check"></input>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        </div> 
+        } 
 </div>

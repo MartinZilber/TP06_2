@@ -409,7 +409,6 @@ static public class Informacion
         } while (!noOcupado && contadorEspacios < 9);
         if (noOcupado)
         {
-
             if (Nivel == 2 || Nivel == 3)
             {
                 if (espaciosOcupadosCruz[0] && espaciosOcupadosCruz[1] && !espaciosOcupadosCirculo[2])
@@ -462,46 +461,45 @@ static public class Informacion
                     espaciosOcupadosCruz[4] = true;
                 else if (espaciosOcupadosCruz[4] && espaciosOcupadosCruz[6] && !espaciosOcupadosCirculo[0])
                     espaciosOcupadosCruz[2] = true;
-
                 else if (Nivel == 3)
                 {
-                    if (espaciosOcupadosCirculo[0] && espaciosOcupadosCirculo[1])
+                    if (espaciosOcupadosCirculo[0] && espaciosOcupadosCirculo[1] && !espaciosOcupadosCruz[2])
                         espaciosOcupadosCruz[2] = true;
-                    else if (espaciosOcupadosCirculo[0] && espaciosOcupadosCirculo[2])
+                    else if (espaciosOcupadosCirculo[0] && espaciosOcupadosCirculo[2] && !espaciosOcupadosCruz[1])
                         espaciosOcupadosCruz[1] = true;
-                    else if (espaciosOcupadosCirculo[1] && espaciosOcupadosCirculo[2])
+                    else if (espaciosOcupadosCirculo[1] && espaciosOcupadosCirculo[2] && !espaciosOcupadosCruz[0])
                         espaciosOcupadosCruz[0] = true;
-                    else if (espaciosOcupadosCirculo[3] && espaciosOcupadosCirculo[4])
+                    else if (espaciosOcupadosCirculo[3] && espaciosOcupadosCirculo[4] && !espaciosOcupadosCruz[5])
                         espaciosOcupadosCruz[5] = true;
-                    else if (espaciosOcupadosCirculo[3] && espaciosOcupadosCirculo[5])
+                    else if (espaciosOcupadosCirculo[3] && espaciosOcupadosCirculo[5] && !espaciosOcupadosCruz[4])
                         espaciosOcupadosCruz[4] = true;
-                    else if (espaciosOcupadosCirculo[4] && espaciosOcupadosCirculo[5])
+                    else if (espaciosOcupadosCirculo[4] && espaciosOcupadosCirculo[5] && !espaciosOcupadosCruz[3])
                         espaciosOcupadosCruz[3] = true;
-                    else if (espaciosOcupadosCirculo[6] && espaciosOcupadosCirculo[7])
+                    else if (espaciosOcupadosCirculo[6] && espaciosOcupadosCirculo[7] && !espaciosOcupadosCruz[8])
                         espaciosOcupadosCruz[8] = true;
-                    else if (espaciosOcupadosCirculo[6] && espaciosOcupadosCirculo[8])
+                    else if (espaciosOcupadosCirculo[6] && espaciosOcupadosCirculo[8] && !espaciosOcupadosCruz[7])
                         espaciosOcupadosCruz[7] = true;
-                    else if (espaciosOcupadosCirculo[7] && espaciosOcupadosCirculo[8])
+                    else if (espaciosOcupadosCirculo[7] && espaciosOcupadosCirculo[8] && !espaciosOcupadosCruz[6])
                         espaciosOcupadosCruz[6] = true;
-                    else if (espaciosOcupadosCirculo[4] && espaciosOcupadosCirculo[5])
+                    else if (espaciosOcupadosCirculo[4] && espaciosOcupadosCirculo[5] && !espaciosOcupadosCruz[3])
                         espaciosOcupadosCruz[3] = true;
-                    else if (espaciosOcupadosCirculo[0] && espaciosOcupadosCirculo[3])
+                    else if (espaciosOcupadosCirculo[0] && espaciosOcupadosCirculo[3] && !espaciosOcupadosCruz[6])
                         espaciosOcupadosCruz[6] = true;
-                    else if (espaciosOcupadosCirculo[0] && espaciosOcupadosCirculo[6])
+                    else if (espaciosOcupadosCirculo[0] && espaciosOcupadosCirculo[6] && !espaciosOcupadosCruz[3])
                         espaciosOcupadosCruz[3] = true;
-                    else if (espaciosOcupadosCirculo[3] && espaciosOcupadosCirculo[6])
+                    else if (espaciosOcupadosCirculo[3] && espaciosOcupadosCirculo[6] && !espaciosOcupadosCruz[0])
                         espaciosOcupadosCruz[0] = true;
-                    else if (espaciosOcupadosCirculo[1] && espaciosOcupadosCirculo[4])
+                    else if (espaciosOcupadosCirculo[1] && espaciosOcupadosCirculo[4] && !espaciosOcupadosCruz[7])
                         espaciosOcupadosCruz[7] = true;
-                    else if (espaciosOcupadosCirculo[1] && espaciosOcupadosCirculo[7])
+                    else if (espaciosOcupadosCirculo[1] && espaciosOcupadosCirculo[7] && !espaciosOcupadosCruz[4])
                         espaciosOcupadosCruz[4] = true;
-                    else if (espaciosOcupadosCirculo[4] && espaciosOcupadosCirculo[7])
-                        espaciosOcupadosCruz[0] = true;
-                    else if (espaciosOcupadosCirculo[2] && espaciosOcupadosCirculo[5])
+                    else if (espaciosOcupadosCirculo[4] && espaciosOcupadosCirculo[7] && !espaciosOcupadosCruz[1])
+                        espaciosOcupadosCruz[1] = true;
+                    else if (espaciosOcupadosCirculo[2] && espaciosOcupadosCirculo[5] && !espaciosOcupadosCruz[8])
                         espaciosOcupadosCruz[8] = true;
-                    else if (espaciosOcupadosCirculo[2] && espaciosOcupadosCirculo[8])
+                    else if (espaciosOcupadosCirculo[2] && espaciosOcupadosCirculo[8] && !espaciosOcupadosCruz[5])
                         espaciosOcupadosCruz[5] = true;
-                    else if (espaciosOcupadosCirculo[5] && espaciosOcupadosCirculo[8])
+                    else if (espaciosOcupadosCirculo[5] && espaciosOcupadosCirculo[8] && !espaciosOcupadosCruz[2])
                         espaciosOcupadosCruz[2] = true;
                     else if (espaciosOcupadosCirculo[0] && espaciosOcupadosCirculo[4] && !espaciosOcupadosCruz[8])
                         espaciosOcupadosCruz[8] = true;
@@ -527,6 +525,7 @@ static public class Informacion
                     {
                         esPosible = true;
                         espaciosOcupadosCruz[jugada] = true;
+                        espaciosOcupados[jugada] = 2;
                     }
 
                 } while (!esPosible);
@@ -559,8 +558,8 @@ static public class Informacion
             espaciosOcupados[i] = 0;
             espaciosOcupadosCruz[i] = false;
             espaciosOcupadosCirculo[i] = false;
-            alguienGano = false;
         }
+        alguienGano = false;
     }
     static public int esPrimeraJugada()
     {
