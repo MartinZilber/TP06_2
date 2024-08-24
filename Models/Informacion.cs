@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Mvc;
+
 static public class Informacion
 {
     static private string[] juegos { get; set; } = { "piedrapapeltijera", "mameig", "ahorcado", "adivinapalabra", "tateti", "sopadeletras", "simondice" };
@@ -44,6 +46,32 @@ static public class Informacion
     static string[] posiblesJugadasColores { get; set; } = { "verde", "rojo", "amarillo", "azul" };
     static int recordSimonDice { get; set; } = 0;
     static int siguienteJugadaSimonDice { get; set; } = 0;
+
+
+    static public int calcularJuegosPorFilas(int cantJuegos)
+    {
+        int cantJuegosFila = 0;
+        if (cantJuegos != 0)
+        {
+            if (cantJuegos % 3 == 0) cantJuegosFila = 3;
+            else if (cantJuegos % 2 == 0) cantJuegosFila = 2;
+            else cantJuegosFila = 1;
+        }
+        return cantJuegosFila;
+    }
+    static public int calcularFilas(int cantJuegos, int cantJuegosFila)
+    {
+        int cantFilas = 0;
+        if (cantJuegosFila != 0) cantFilas = cantJuegos / cantJuegosFila;
+        return cantFilas;
+    }
+    static public string calcularAnchoCard(int cantJuegosFila)
+    {
+        string width = "width: 100%";
+        if (cantJuegosFila == 2) width = "width: 80%";
+        else if (cantJuegosFila == 1) width = "width: 50%";
+        return width;
+    }
 
     static public void reestablecerValores()
     {

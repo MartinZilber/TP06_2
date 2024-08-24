@@ -27,10 +27,9 @@ public class HomeController : Controller
     {
         List<Juego> juegosEncontrados = BD.traerJuegosEncontrados(busqueda);
         ViewBag.listaJuegos = juegosEncontrados;
-        ViewBag.cantJuegos = juegosEncontrados.Count;
-        if (ViewBag.cantJuegos % 3 == 0) {ViewBag.limiteFila = 3; ViewBag.cantidadFilas = ViewBag.cantJuegos/3;}
-        else if (ViewBag.cantJuegos % 2 == 0) {ViewBag.limiteFila = 2; ViewBag.cantidadFilas = ViewBag.cantJuegos/2;}
-        else {ViewBag.limiteFila = 1; ViewBag.cantidadFilas = 1;}
+        ViewBag.cantJuegosFila = Informacion.calcularJuegosPorFilas(juegosEncontrados.Count);
+        ViewBag.cantFilas = Informacion.calcularFilas(juegosEncontrados.Count, ViewBag.cantJuegosFila);
+        ViewBag.widthCard = Informacion.calcularAnchoCard(ViewBag.cantJuegosFila);
         return View("busqueda");
     }
     public IActionResult sobrenosotros()

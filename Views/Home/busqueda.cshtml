@@ -1,83 +1,59 @@
 @{
     ViewData["Title"] = "Resultados para tu búsqueda";
+    int cantFilas = ViewBag.cantFilas;
+    int cantJuegosFila = ViewBag.cantJuegosFila;
     int contador = 0;
-    string ancho, margin;
+    string widthCard = ViewBag.widthCard;
+    string anchoImagen = "width: 95%";
+    string marginLeft = "margin-left: 0 auto";
 }
 
 <div class="text-center">
     <h1 class="titulo">MINIJUEGOS</h1>
     <p class="mensajeindex">¿Estás aburrido y no sabés qué hacer? ¡Acá tenés juegos cortos para divertirte!
     <form action='@Url.Action("BuscarJuego", "Home")' class="d-flex formbuscador">
-        <input name="busqueda" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input name="busqueda" class="form-control me-2" type="search" placeholder="Buscar juego" aria-label="Search" required>
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
     </form>
-        @for (int i = 0; i < ViewBag.listaJuegos.Count; i++)
+        @if (ViewBag.listaJuegos.Count != 0)
         {
-        <div class="container contenedorbuscador text-center">
-            <div class="row align-items-start">
-                <div class="col">
-                    <div class="card">
-                            @if (ViewBag.listaJuegos[i].Nombre == "Ahorcado" || ViewBag.listaJuegos[i].Nombre == "Ta-te-ti")
-                            {
-                                ancho = "width: 60%"; margin = "margin-left: 24%";
-                                if (ViewBag.listaJuegos[i].Nombre == "Ta-te-ti") { margin = "margin-left: 21%"; }
-                            }
-                            else { ancho = "width: 95%"; margin = "margin: 0 auto"; }
-                        <img style="@ancho; @margin;" src="@ViewBag.listaJuegos[i].Imagen" class="imagen-card"
-                            alt="@ViewBag.listaJuegos[i].Nombre">
-                        <div class="card-body">
-                            @if (ViewBag.listaJuegos[contador].Id == 2) {<h5 class="card-title">¿@ViewBag.listaJuegos[contador].Nombre</h5>}
-                                else {<h5 class="card-title">@ViewBag.listaJuegos[i].Nombre</h5>}
-                            <p class="card-text">@ViewBag.listaJuegos[i].Descripcion</p>
-                            <form action='@Url.Action("GuardarJuegoSeleccionado", "Home")'>
-                                <input type="hidden" name="juego" value=@(ViewBag.listaJuegos[i].Id)>
-                                <input type="submit" value="Jugar" class="btn btn-primary" for="btn-check"></input>
-                            </form>
+            @for (int i = 0; i < cantFilas; i++)
+            {
+                <div style="@widthCard" class="container text-center">
+                    <div class="row align-items-start">
+                    @for (; contador < cantJuegosFila; contador++)
+                    {
+                        <div class="col">
+                            <div class="card">
+                                @if (ViewBag.listaJuegos[contador].Id == 4)
+                                {anchoImagen = "width: 80%;"; marginLeft = "margin-left:11%";}
+                                @if (ViewBag.listaJuegos[contador].Id == 3)
+                                {anchoImagen = "width: 80%;"; marginLeft = "margin-left:15%"; }
+                                
+                                <img style="@anchoImagen; @marginLeft;" src="@ViewBag.listaJuegos[contador].Imagen" class="imagen-card"
+                                    alt="@ViewBag.listaJuegos[contador].Nombre">
+                                <div class="card-body">
+                                    @if (ViewBag.listaJuegos[contador].Id == 2) {<h5 class="card-title">¿@ViewBag.listaJuegos[contador].Nombre</h5>}
+                                    else {<h5 class="card-title">@ViewBag.listaJuegos[contador].Nombre</h5>}
+                                    <p class="card-text">@ViewBag.listaJuegos[contador].Descripcion</p>
+                                    <form action='@Url.Action("GuardarJuegoSeleccionado", "Home")'>
+                                        <input type="hidden" name="juego" value=@(ViewBag.listaJuegos[contador].Id)>
+                                        <input type="submit" value="Jugar" class="btn btn-primary" for="btn-check"></input>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
+                    }
+                    @{
+                        cantJuegosFila+=cantJuegosFila;
+                    }
                     </div>
                 </div>
-            </div>
-        </div>
+            } 
         }
-
-
-
-
-
-        @* <p>@ViewBag.listaJuegos[0].Nombre</p>
-    @if (ViewBag.limiteFila == 1) {ancho = "width: 90%";}
-    @for (int i = 0; i < ViewBag.cantidadFilas; i++){
-    <div class="container text-center">
-    <div class="row align-items-start">
-    @for (; contador < ViewBag.limiteFila; contador++)
-    {
-    <div class="col">
-    <div class="card">
-    @if (contador == 2 || contador == 4)
-    { ancho = "width: 70%"; margin = "margin-left: 20%";
-    if (contador == 4) {margin = "margin-left: 18%";} }
-    else { ancho = "width: 95%"; margin = "margin: 0 auto"; }
-    <img style="@ancho; @margin;" src="@ViewBag.listaJuegos[contador].Imagen" class="imagen-card"
-    alt="@ViewBag.listaJuegos[contador].Nombre">
-    <div class="card-body">
-    <h5 class="card-title">@ViewBag.listaJuegos[contador].Nombre</h5>
-    <p class="card-text">@ViewBag.listaJuegos[contador].Descripcion</p>
-    <form action='@Url.Action("GuardarJuegoSeleccionado", "Home")'>
-    <input type="hidden" name="juego" value=@(ViewBag.listaJuegos[contador].Id)>
-    <input type="submit" value="Jugar" class="btn btn-primary" for="btn-check"></input>
-    </form>
-    </div>
-    </div>
-    </div>
-    }
-    @{
-    if (ViewBag.contador +1==ViewBag.listaJuegos.Count)
-    ViewBag.limiteFila+=1;
-    else if (ViewBag.contador+2==ViewBag.listaJuegos.Count)
-    ViewBag.limiteFila+=2;
-    else ViewBag.limiteFila+=3;
-    }
-    </div>
-    </div>
-    } *@
+        else
+        {
+            <p>No hay juegos que coincidan con tu búsqueda.</p>
+            <p>Intentá buscar palabras clave relacionadas con el nombre del juego o la descripción.</p>
+        }
 </div>

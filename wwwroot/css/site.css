@@ -30,7 +30,7 @@ html {
   margin: 0;
 }
 .iniciarsesion {
-  margin-left:71%;
+  margin-left:63.2%;
 }
 
 
@@ -85,7 +85,7 @@ h4 {
 
 .imagen-card {
   height: 300px;
-  margin-left: 3%;
+  margin-left: 0 auto;
   margin-top: 1%;
   background-size: cover;
   background-position: center;
@@ -409,11 +409,13 @@ form .mb-3 .btn-primary {
 }
 
 footer {
+  width: 100%;
+  height: auto;
   background-color: whitesmoke;
+  margin: 0 auto;
   margin-top: 7%;
   text-align: center;
   padding: 0;
-  width: 100%;
   position: absolute;
   z-index: 1000;
 }

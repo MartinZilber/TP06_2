@@ -8,8 +8,8 @@
     <h1 class="titulo">MINIJUEGOS</h1>
     <p class="mensajeindex">¿Estás aburrido y no sabés qué hacer? ¡Acá tenés juegos cortos para divertirte!
     <form action='@Url.Action("BuscarJuego", "Home")'class="d-flex formbuscador">
-        <input name="busqueda" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input name="busqueda" class="form-control me-2" type="search" placeholder="Buscar juego" aria-label="Search" required>
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
     </form>
         @for (int i = 0; i < ViewBag.listaJuegos.Count/3; i++)
         {
