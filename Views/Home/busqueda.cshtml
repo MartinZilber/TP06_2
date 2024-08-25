@@ -25,10 +25,32 @@
                     {
                         <div class="col">
                             <div class="card">
-                                @if (ViewBag.listaJuegos[contador].Id == 4)
-                                {anchoImagen = "width: 80%;"; marginLeft = "margin-left:11%";}
-                                @if (ViewBag.listaJuegos[contador].Id == 3)
-                                {anchoImagen = "width: 80%;"; marginLeft = "margin-left:15%"; }
+                                @if (ViewBag.cantJuegosFila == 3)
+                                {
+                                        @if (ViewBag.listaJuegos[contador].Id != 1)
+                                    {if (ViewBag.listaJuegos[contador].Id == 2) {marginLeft = "margin-left:2%;"; anchoImagen = "width: 95%;";
+                                        } else if (ViewBag.listaJuegos[contador].Id == 3) {marginLeft = "margin-left: 18%"; anchoImagen = "width: 80%";}
+                                        else{marginLeft = "margin-left: 12%;"; anchoImagen = "width: 80%";}}
+                                    else
+                                    {anchoImagen = "width: 95%"; marginLeft = "0 auto";}
+                                }
+                                else
+                                {
+                                    if (ViewBag.listaJuegos[contador].Id == 1 && ViewBag.sumatoria == 1)
+                                    {anchoImagen = "width: 80%"; marginLeft = "margin-left: 10%;";}
+                                    if (ViewBag.listaJuegos[contador].Id == 2){anchoImagen = "width: 80%"; marginLeft = "margin-left: 10%;";}
+                                    else if (ViewBag.listaJuegos[contador].Id == 3) {anchoImagen = "width: 80%"; marginLeft = "margin-left: 14%;";}
+                                    else if (ViewBag.listaJuegos[contador].Id == 4) {anchoImagen = "width: 80%"; marginLeft = "margin-left: 11.5%;";}
+                                    else if (ViewBag.listaJuegos[contador].Id == 5) 
+                                    {
+                                        if (ViewBag.sumatoria == 1)
+                                        {anchoImagen = "width: 60%"; marginLeft = "margin-left: 21%;";}
+                                        else
+                                        {anchoImagen = "width: 80%"; marginLeft = "margin-left: 11.5%;";}
+                                    }
+                                    else if (ViewBag.listaJuegos[contador].Id == 6) {marginLeft = "margin-left: 12%";}
+                                }
+
                                 
                                 <img style="@anchoImagen; @marginLeft;" src="@ViewBag.listaJuegos[contador].Imagen" class="imagen-card"
                                     alt="@ViewBag.listaJuegos[contador].Nombre">
@@ -45,7 +67,7 @@
                         </div>
                     }
                     @{
-                        cantJuegosFila+=cantJuegosFila;
+                        cantJuegosFila+=ViewBag.sumatoria;
                     }
                     </div>
                 </div>

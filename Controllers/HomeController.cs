@@ -30,6 +30,7 @@ public class HomeController : Controller
         ViewBag.cantJuegosFila = Informacion.calcularJuegosPorFilas(juegosEncontrados.Count);
         ViewBag.cantFilas = Informacion.calcularFilas(juegosEncontrados.Count, ViewBag.cantJuegosFila);
         ViewBag.widthCard = Informacion.calcularAnchoCard(ViewBag.cantJuegosFila);
+        ViewBag.sumatoria = ViewBag.cantJuegosFila;
         return View("busqueda");
     }
     public IActionResult sobrenosotros()

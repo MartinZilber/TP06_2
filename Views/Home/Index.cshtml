@@ -2,6 +2,7 @@
     ViewData["Title"] = "Página principal";
     int contador = 0, limite = 3;
     string ancho, margin;
+    ancho = "width: 95%"; margin = "0 auto";
 }
 
 <div class="text-center">
@@ -19,10 +20,13 @@
                     {
                     <div class="col">
                         <div class="card">
-                                @if (contador == 2 || contador == 4)
-                                { ancho = "width: 70%"; margin = "margin-left: 20%"; 
-                                if (contador == 4) {margin = "margin-left: 18%";} }
-                                else { ancho = "width: 95%"; margin = "0 auto"; }
+                                @if (ViewBag.listaJuegos[contador].Id != 1)
+                                {if (ViewBag.listaJuegos[contador].Id == 2) {margin = "margin-left:3%;";
+                                    } else if (ViewBag.listaJuegos[contador].Id == 3) {margin = "margin-left: 18%"; ancho = "width: 80%";}
+                                    else{margin = "margin-left: 12%;"; ancho = "width: 80%";}}
+                                else
+                                {ancho = "width: 95%"; margin = "0 auto";}
+                                
                             <img style="@ancho; @margin;" src="@ViewBag.listaJuegos[contador].Imagen" class="imagen-card"
                                 alt="@ViewBag.listaJuegos[contador].Nombre">
                             <div class="card-body">

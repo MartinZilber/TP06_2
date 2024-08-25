@@ -23,7 +23,7 @@ namespace TP06_2
             using (SqlConnection db = new SqlConnection(_connectionString))
             {
                 busqueda = $"%{busqueda}%";
-                string sql = "select * from Juego where Nombre LIKE @pbusqueda OR Descripcion LIKE @pbusqueda";
+                string sql = "select * from Juego where Nombre COLLATE Latin1_General_CI_AI LIKE @pbusqueda OR Descripcion COLLATE Latin1_General_CI_AI LIKE @pbusqueda ORDER BY Nombre, Descripcion" ;
                 juegos = db.Query<Juego>(sql, new {pbusqueda = busqueda}).ToList();
             }
             return juegos;
